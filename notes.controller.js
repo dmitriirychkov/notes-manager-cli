@@ -1,4 +1,8 @@
 const fs = require('fs/promises')
+const path = require('path')
+
+const notesPath = path.join(__dirname, 'db.json')
+console.log(notesPath)
 
 function addNote(title) {
     const notes = require('./db.json')
@@ -9,7 +13,7 @@ function addNote(title) {
 
     notes.push(note)
 
-    fs.writeFile('./db.json', JSON.stringify(notes))
+    fs.writeFile(notesPath, JSON.stringify(notes))
 }
 
 function getNotes() {
